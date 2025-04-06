@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { HERO_CONTENT } from "../constants"
-import profilepic from "../assets/Shageeth.jpg"
+import profilepic from "../assets/Shageeth.png"
 import cvFile from "../assets/Shageeth_CV.pdf"
 import { motion } from "framer-motion"
 import { TypeAnimation } from 'react-type-animation'

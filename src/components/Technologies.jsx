@@ -1,206 +1,194 @@
-// import React from 'react'
-// import { RiReactjsLine } from "react-icons/ri";
-// import { TbBrandNextjs } from "react-icons/tb";
-// import { SiMongodb } from "react-icons/si";
-// import { DiRedis } from "react-icons/di";
-// import { FaNodeJs } from "react-icons/fa";
-// import { BiLogoPostgresql } from "react-icons/bi";
-// import { motion } from "framer-motion"
-
-// const iconVariants = (duration) => ({
-//   initial: { y: -10 },
-//   animate: {
-//     y: [10, -10],
-//     transition: {
-//       duration: duration,
-//       ease: "linear",
-//       repeat: Infinity,
-//       repeatType: "reverse",
-//     },
-//   },
-// });
-
-// function Technologies() {
-//   return (
-//     <div id="technologies" className="border-b border-neutral-800 py-12 md:py-24">
-//       <motion.h1 
-//         whileInView={{ opacity: 1, y: 0 }}
-//         initial={{ opacity: 0, y: -100 }}
-//         transition={{ duration: 1.5 }}
-//         className="my-12 md:my-20 text-center text-3xl md:text-4xl lg:text-5xl"
-//       >
-//         Technologies
-//       </motion.h1>
-//       <motion.div 
-//         whileInView={{ opacity: 1, x: 0 }}
-//         initial={{ opacity: 0, x: -100 }}
-//         transition={{ duration: 1.5 }}
-//         className="flex flex-wrap items-center justify-center gap-4 md:gap-8 lg:gap-12"
-//       >
-//         {[
-//           { icon: RiReactjsLine, color: "text-cyan-400" },
-//           { icon: TbBrandNextjs, color: "text-neutral-100" },
-//           { icon: SiMongodb, color: "text-green-500" },
-//           { icon: DiRedis, color: "text-red-700" },
-//           { icon: FaNodeJs, color: "text-green-500" },
-//           { icon: BiLogoPostgresql, color: "text-sky-700" },
-//         ].map((tech, index) => (
-//           <motion.div 
-//             key={index}
-//             variants={iconVariants(2.5 + index * 0.5)}
-//             initial="initial"
-//             animate="animate"
-//             className="rounded-lg md:rounded-2xl border-2 md:border-4 border-neutral-800 p-2 md:p-4"
-//           >
-//             <tech.icon className={`text-4xl md:text-5xl lg:text-7xl ${tech.color}`} />
-//           </motion.div>
-//         ))}
-//       </motion.div>
-//     </div>
-//   )
-// }
-
-// export default Technologies
-
-
-
-
 import React from 'react'
-import { RiReactjsLine } from "react-icons/ri"
-import { TbBrandNextjs } from "react-icons/tb"
-import { SiMongodb } from "react-icons/si"
-import { DiRedis } from "react-icons/di"
-import { FaNodeJs } from "react-icons/fa"
-import { BiLogoPostgresql } from "react-icons/bi"
 import { motion } from "framer-motion"
+import { SiCplusplus, SiPython, SiJavascript, SiSpringboot, SiReact, SiDotnet, SiNextdotjs, SiNodedotjs, SiMysql, SiPostgresql, SiAndroidstudio, SiGit, SiIntellijidea, SiDocker, SiFigma } from "react-icons/si"
+import { DiJava } from "react-icons/di"
+import { FaAws } from "react-icons/fa"
+import { VscCode } from "react-icons/vsc"
 
-const technologies = [
-  { icon: RiReactjsLine, name: "React", color: "text-cyan-400" },
-  { icon: TbBrandNextjs, name: "Next.js", color: "text-neutral-100" },
-  { icon: SiMongodb, name: "MongoDB", color: "text-green-500" },
-  { icon: DiRedis, name: "Redis", color: "text-red-500" },
-  { icon: FaNodeJs, name: "Node.js", color: "text-green-600" },
-  { icon: BiLogoPostgresql, name: "PostgreSQL", color: "text-sky-600" },
-]
+const technologies = {
+  languages: [
+    { icon: SiCplusplus, name: "C++", color: "text-blue-500" },
+    { icon: SiPython, name: "Python", color: "text-yellow-500" },
+    { icon: DiJava, name: "Java", color: "text-red-500" },
+    { icon: SiJavascript, name: "JavaScript", color: "text-yellow-400" },
+  ],
+  devTools: [
+    { icon: VscCode, name: "VS Code", color: "text-blue-500" },
+    { icon: SiIntellijidea, name: "IntelliJ", color: "text-pink-500" },
+    { icon: SiGit, name: "Git", color: "text-orange-500" },
+    { icon: SiAndroidstudio, name: "Android Studio", color: "text-green-500" },
+    { icon: SiDocker, name: "Docker", color: "text-blue-400" },
+    { icon: SiFigma, name: "Figma", color: "text-purple-400" },
+    { icon: FaAws, name: "AWS", color: "text-orange-400" },
+  ],
+  frameworks: [
+    { icon: SiSpringboot, name: "Spring Boot", color: "text-green-500" },
+    { icon: SiReact, name: "React", color: "text-cyan-400" },
+    { icon: SiDotnet, name: ".NET", color: "text-purple-500" },
+    { icon: SiReact, name: "MERN Stack", color: "text-blue-400" },
+    { icon: SiNextdotjs, name: "Next.js", color: "text-neutral-100" },
+    { icon: SiNodedotjs, name: "Node.js", color: "text-green-600" },
+    { icon: SiMysql, name: "MySQL", color: "text-blue-600" },
+    { icon: SiPostgresql, name: "PostgreSQL", color: "text-sky-600" },
+  ]
+}
 
 function Technologies() {
   return (
-    <div id="technologies" className="border-b border-neutral-800 pb-12 md:pb-24">
+    <div id="technologies" className="relative border-b border-neutral-800 pb-12 md:pb-24">
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="overflow-hidden"
       >
-
         <motion.h1 
           className="my-12 md:my-20 text-center text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent pb-2 overflow-visible"
           initial={{ scale: 0.95 }}
           whileInView={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 100 }}
+          viewport={{ once: true }}
         >
           Technologies
         </motion.h1>
-      </motion.div>
 
-      <div className="py-5 max-w-7xl mx-auto px-4">
-        <motion.div 
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {technologies.map((tech, index) => (
-            <motion.div
-              key={index}
+        {/* Categories */}
+        <div className="max-w-7xl mx-auto px-4 space-y-12">
+          {/* Languages */}
+          <div className="space-y-6">
+            <motion.h2 
+              className="text-center md:text-left text-xl md:text-2xl font-medium text-neutral-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              Languages
+            </motion.h2>
+            <motion.div 
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               variants={{
-                hidden: { opacity: 0, scale: 0.8, y: 20 },
-                visible: { 
-                  opacity: 1, 
-                  scale: 1,
-                  y: 0,
-                  transition: { 
-                    type: "spring",
-                    stiffness: 300,
-                    delay: index * 0.1,
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1
                   }
                 }
               }}
-              className="relative group"
             >
-              {/* Parallax Card Container */}
-              <motion.div
-                whileHover={{ 
-                  scale: 1.05,
-                  rotateZ: 5,
-                  rotateX: 5,
-                  translateZ: 20
-                }}
-                whileInView={{
-                  opacity: 1,
-                  rotateY: 0,
-                  transition: { 
-                    duration: 0.6, 
-                    delay: index * 0.2 
-                  }
-                }}
-                initial={{ 
-                  opacity: 0,
-                  rotateY: 45
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="rounded-xl bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-4 md:p-6 cursor-pointer shadow-xl hover:shadow-cyan-500/20 transition-all"
-              >
-                {/* Floating Icon with Scroll Animation */}
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ 
-                    duration: 0.6,
-                    delay: index * 0.15,
-                    ease: "easeOut"
-                  }}
-                  className="flex justify-center"
-                >
-                  <tech.icon className={`text-4xl md:text-5xl lg:text-6xl ${tech.color}`} />
-                </motion.div>
-
-                {/* Scroll-Activated Tooltip */}
-                <motion.div
-                  className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-md bg-neutral-900 border border-neutral-800 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                  initial={{ scale: 0.8 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <span className="whitespace-nowrap text-neutral-300">
-                    {tech.name}
-                  </span>
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-2 h-2 bg-neutral-900 border-b border-r border-neutral-800 rotate-45" />
-                </motion.div>
-              </motion.div>
-
-              {/* Mobile Label with Scroll Animation */}
-              <motion.div
-                className="md:hidden mt-2 text-center text-sm text-neutral-500 font-medium"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 + 0.3 }}
-              >
-                {tech.name}
-              </motion.div>
+              {technologies.languages.map((tech, index) => (
+                <TechItem key={tech.name} tech={tech} index={index} />
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </div>
 
-        {/* Background Scrolling Elements */}
-        <motion.div 
-          className="absolute left-0 -bottom-24 w-full h-24 bg-gradient-to-t from-neutral-900 to-transparent opacity-50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.5 }}
-          transition={{ duration: 1 }}
-        />
-      </div>
+          {/* Developer Tools */}
+          <div className="space-y-6">
+            <motion.h2 
+              className="text-center md:text-left text-xl md:text-2xl font-medium text-neutral-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              Developer Tools
+            </motion.h2>
+            <motion.div 
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1
+                  }
+                }
+              }}
+            >
+              {technologies.devTools.map((tech, index) => (
+                <TechItem key={tech.name} tech={tech} index={index} />
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Frameworks & Technologies */}
+          <div className="space-y-6">
+            <motion.h2 
+              className="text-center md:text-left text-xl md:text-2xl font-medium text-neutral-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              Technologies & Frameworks
+            </motion.h2>
+            <motion.div 
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1
+                  }
+                }
+              }}
+            >
+              {technologies.frameworks.map((tech, index) => (
+                <TechItem key={tech.name} tech={tech} index={index} />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
     </div>
+  )
+}
+
+// Reusable tech item component
+function TechItem({ tech, index }) {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, scale: 0.8, y: 20 },
+        visible: { 
+          opacity: 1, 
+          scale: 1,
+          y: 0,
+        }
+      }}
+      transition={{ 
+        type: "spring",
+        stiffness: 200,
+        damping: 15,
+        delay: index * 0.05
+      }}
+      whileHover={{ scale: 1.05 }}
+      className="group relative"
+    >
+      {/* Hover tooltip for desktop */}
+      <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-neutral-800 text-white px-3 py-1.5 rounded text-sm font-medium pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity z-10 whitespace-nowrap hidden md:block">
+        {tech.name}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full w-2 h-2 bg-neutral-800 rotate-45"></div>
+      </div>
+      
+      <div className="rounded-xl bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-4 md:p-5 cursor-pointer shadow-md hover:shadow-cyan-500/20 hover:border-cyan-500/30 transition-all duration-300">
+        <div className="flex flex-col items-center space-y-3">
+          <tech.icon className={`text-2xl md:text-3xl ${tech.color}`} />
+          <span className="text-xs md:text-sm text-neutral-400 group-hover:text-neutral-300 transition-colors text-center md:hidden">
+            {tech.name}
+          </span>
+        </div>
+      </div>
+    </motion.div>
   )
 }
 
